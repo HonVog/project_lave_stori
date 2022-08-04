@@ -1,0 +1,17 @@
+<div class="ListNameElement__wraper full-width radius-border cursor-pointer"  
+    
+    :style="{'background': data.color }"
+>
+    <div class="ListNameElement__span-name flex flex-justify-between">
+        <span   
+            @click="$emit('clickNameElement')"
+        >
+            {{fullData}}
+        </span>
+        <span class="flex flex-justify-end"
+             @click="$emit('deleteElemetn')"
+        >
+            <i class="fa fa-trash"></i>
+        </span>
+    </div>
+</div>

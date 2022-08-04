@@ -1,0 +1,73 @@
+.RoomsBord_ {
+    &_wraper {
+        position: relative;
+        background: antiquewhite url("https://www.freeiconspng.com/uploads/heart-png-4.png") no-repeat center ;
+    }
+
+    &_rooms-card {
+        position: absolute;
+        z-index: 1;
+        top: 3%;
+        left: 3%;
+
+        &_button {
+            width: 5rem;
+            height: 5rem;
+            border: 3px solid red;
+            border-radius: 50px;
+            background-color: white;
+            margin-bottom: 4%;
+
+            &-anim {
+                img{
+                    width: 70%;
+                    height: 70%;
+                }
+
+            }
+        }
+
+        &_span {
+            z-index: 1;
+            margin: 5%;
+            width: 100rem;
+            position: sticky;
+            padding: 3%;
+            background-color: white;
+            border: 1px solid red;
+        }
+
+        &_heder {
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            height: 5rem;
+            h1 { 
+                color: #d54d7b; 
+                font-family: «Great Vibes», cursive; 
+                font-size: 3rem; 
+                line-height: 3rem;
+                font-weight: normal; 
+                margin-bottom: 0px; 
+                margin-top: 40px; 
+                text-align: center; 
+                text-shadow: 0 1px 1px #fff;
+            }
+            
+            img {
+                width: 5rem;
+                height: 5rem;
+            }
+        }
+    }
+
+    &_rooms-list-names {
+        position: absolute;
+        top: 15%;
+        width: 94%;
+        height: 50%;
+        margin: 3%;
+        background: rgb(204, 107, 107);
+        border: 6px solid red;
+    }
+}

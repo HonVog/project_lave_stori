@@ -1,0 +1,25 @@
+.ListNameElement_ {
+    &_wraper {
+        margin: 2%;
+        width: 96%;
+        padding: 1%;
+    }
+
+    &_span-name{
+        background-color: azure;
+        padding: 0.3rem;
+        i {
+            margin: 3%;
+            padding: 6%;
+            transition: 0.3s;
+            &:hover {
+                padding: 0.3rem;
+                font-size: 1.2rem;
+                border: 2px solid black;
+                border-radius: 25px;
+                background-color: #fff;
+            }
+        }
+
+    }
+}

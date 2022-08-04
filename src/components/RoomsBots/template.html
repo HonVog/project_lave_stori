@@ -1,0 +1,24 @@
+<div class="RoomBots__wraper full-screen flex flex-center">
+    <div class="RoomBots__scrol  flex flex-item-center flex-justify-around">
+        <div class="RoomBots__scrol_print flex flex-justify-around flex-column"
+            :key="index"
+            @click="choisBot( bot )" 
+            v-for="(bot, index) in bots"
+        >
+            <div class="RoomBots__scrol_print-img flex flex-center">
+                <img :src="bot.imgBot" alt="">
+            </div>
+            <div class="RoomBots__scrol_print-scrol">
+                <span class="flex flex-center"   
+                >
+                    {{ bot.nameBot }}
+                </span>
+            </div>
+        </div>
+        <div class="RoomBots__span">
+            <span>С вами хотят пообщатся</span>
+        </div>
+    </div>
+    
+</div>
+

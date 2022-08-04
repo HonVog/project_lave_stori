@@ -1,0 +1,13 @@
+<div class="RoomRolledUp__wraper">
+    <div class="RoomRolledUp__button cursor-pointer"
+        :class="{ 'RoomRolledUp__button-active': this.activAnim }"
+        :key="index"
+        v-for="( item, index ) in arrActivRoom"
+        @click="$emit('clickNameElement', item)"
+        @mouseover="activAnim = true"
+        @mouseleave="activAnim = false"
+    > 
+        <b>{{ index+1 }}</b>
+    </div>
+</div>
+

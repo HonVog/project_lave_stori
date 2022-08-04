@@ -1,0 +1,73 @@
+<div class="RoomsChat__wraper full-screen flex flex-center">
+    <div class="RoomsChat__room flex flex-column radius-border">
+
+        <div class="RoomsChat__room-bot">
+            <div class="RoomsChat__room-bot_print">
+                <div class="RoomsChat__room-bot_print-img flex flex-center">
+                    <img :src="this.boardItem.imgBot" alt="">
+                </div>
+                <div class="RoomsChat__room-bot_print-scrol">
+                    <span class="flex flex-center"   
+                    >
+                        {{ boardItem.nameBot }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-item-center flex-justify-around  full-width">
+            <div class="RoomsChat__room-name flex flex-center">
+                <span>{{ nameChat }}</span>
+            </div>
+            <div class="RoomsChat__room-icon flex flex-item-center flex-justify-end">
+                <b class="flex flex-center cursor-pointer"
+                    @click="$emit('rollUp')"
+                >-</b>
+                <b class="flex flex-center cursor-pointer"
+                    @click="$emit('scipUp')"
+                >x</b>
+            </div>
+        </div>
+
+        <div class="RoomsChat__room-messages cursor-pointer radius-border scroll" 
+            :style="{'background': this.boardItem.color }"
+        >
+        
+            <rooms-message
+                        v-if="boardItem.messags && boardItem.messags.length != 0"
+                        :key="index"
+                        ref="scrollToMe"
+                        :messag="item"
+                        :messagBot="this.getMessagBot( item, index )"
+                        v-for="(item, index) in boardItem.messags"
+            />
+
+            <div class="flex flex-center full-size"
+                v-else
+            >
+                <span>Пока нет сообщений</span>
+            </div>
+        </div>
+    
+        <div class="RoomsChat__room-add flex flex-item-end flex-justify-center">
+            <div class="RoomsChat__room-add_form radius-border flex flex-item-center flex--justify-around full-width">
+                <textarea class="radius-border"
+                        cols="30" rows="10" placeholder="Сообщение в чат"
+                        v-model="room.messag"
+                >
+                </textarea>
+                <div class="flex flex-column flex-center">
+                    <button :disabled="!( room.messag )"
+                             @click="$emit('newMessag', room ), scrollToElement"
+                    >
+                        Добавить
+                    </button>
+                    <button @click="room.messag=''"
+                    >
+                        Очистить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

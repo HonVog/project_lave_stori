@@ -1,0 +1,121 @@
+.RoomsChat_ {
+    &_wraper {
+        position: absolute;
+        z-index: 2;
+        background:  rgba(0, 0, 0, 0.5);
+    }
+
+    &_room {
+        width: 40%;
+        background-color: #ff0000;
+        position: relative;
+
+        &-bot{
+            align-items: stretch;
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            z-index: 10;
+
+            &_print {    
+                border: 2px solid white;
+                width: 3rem;
+
+                &-img{
+                    overflow: hidden;
+
+                    img{
+                        width: auto;
+                        height: 3rem;
+                    }
+                }
+
+                &-scrol{
+                    padding: 2%;
+                    background: wheat;
+                }
+            }
+
+        }
+
+        &-name{
+            width: 70%;
+
+            span {
+                color: #CEF0D4; 
+                font-family: ‘Rouge Script’, cursive; 
+                font-size: 2rem; 
+                font-weight: normal; 
+                margin-top: 3%; 
+                text-align: center; 
+                text-shadow: 1px 1px 2px #082b34;
+            }
+        }
+
+        &-icon {
+            width: auto;
+            color: white;
+            background-color: #ff0000;
+            margin-top: 2%;
+            
+            b {
+                margin: 3%;
+                width: 2rem;
+                height: 2rem;
+                border-radius: 25px;
+                border: 2px solid white;
+                transition: 0.3s;
+
+                &:hover {
+                    width: 2.2em;
+                    height: 2.2em;
+                    border: 3px solid blue;
+                    background-color: white;
+                    color: blue;
+                    font-size: 1.2rem;
+                }
+            }  
+        }
+
+        &-messages{
+            margin: 3%;
+            padding: 3%;
+            width: 94%;
+            height: 15rem;
+        }
+
+        &-add{
+            position: sticky;
+            &_form {
+                background: gray;
+                height: 6rem;
+                width: 90%;
+                margin-bottom: 1%;
+
+                textarea {
+                    width: 80%;
+                    height: 90%;
+                    margin: 1%;
+                    padding: 2%;
+                }
+
+                button {
+                    margin: 3%;
+                    padding: 3%;
+                    background: gray;
+                    cursor: pointer;
+                    border: 2px solid black;
+                    border-radius: 25px;
+                    transition: 0.3s;
+
+                    &:hover {
+                        background: gray;
+                        border: 4px solid white;
+                        color: white;
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+    }
+}

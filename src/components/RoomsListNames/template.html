@@ -1,0 +1,10 @@
+<div class="RoomsList__wraper radius-border full-width">
+    <list-name-element
+                    :key="index"
+                    :data="item"
+                    :id="index"
+                    v-for="(item, index) in boards"
+                    @clickNameElement="clickNameElement(index)"
+                    @deleteElemetn="deleteElemetn(index)"
+    />
+</div>

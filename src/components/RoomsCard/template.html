@@ -1,0 +1,73 @@
+<div class="RooomsCard__wraper full-screen flex flex-center">
+    <div class="RooomsCard__background flex flex-center">
+    <div class="RooomsCard__form flex flex-item-center flex-justify-around flex-column radius-border">
+        <div class="RooomsCard__form-icon flex flex-item-center flex-justify-end full-width cursor-pointer">
+            <b class="flex flex-center"
+                @click="$emit('scipRoomsCard')"
+            >x</b>
+        </div>
+        <div class="RooomsCard__form-input radius-border full-width">
+            <label for="chatNameID">Введите окна для общения
+                <input id="chatNameID" class="radius-border" v-model="userInput.name"
+                 type="text" placeholder="Название окна чата">
+            </label>
+        </div>
+
+        <div class="RooomsCard__form-input flex flex-justify-between"
+            v-if="userInput.name.length > 3"
+        >
+            <div class="RooomsCard__form-input_color radius-border flex flex-item-center flex-justify-around">
+                <label for="colorID">Выбирите цвет окна
+                    <div class="RooomsCard__form-input_color-win"
+                        v-if="userInput.color"
+                        :style="{'background': userInput.color }"
+                    />
+                    <select class="cursor-pointer radius-border" 
+                            name="" id="colorID"
+                            v-model="userInput.color"
+                    >
+                        <option 
+                            :style="{'background': color }"
+                            :key="index"
+                            :value="color"
+                            v-for="(color, index) in colorArr"
+                        />
+                    </select>
+                      
+                </label>
+            </div>
+            <div class="RooomsCard__form-input-selext radius-border"
+                v-if="userInput.color"
+            >
+                <label for="topicID">Выбирите тему общения
+                    <select  id="topicID"
+                             v-model="userInput.topic"
+                    >
+                        <option disabled value="">Выберите один из вариантов</option>
+                        <option 
+                            :key="index"
+                            :value="item"
+                            v-for="(item, index) in topicArr"
+                        >   {{item}}
+                        </option>
+                    </select>
+                </label>
+            </div>
+        </div>
+
+        <div class="RooomsCard__form-button flex flex-item-center flex-justify-around full-width">
+            <button
+                @click="pushListBord( this.userInput )"
+                :disabled="!( userInput.name && userInput.color && userInput.topic)"
+            >
+            <b>Добавить</b>
+            </button>
+            <button 
+                @click="$emit('scipRoomsCard')"
+            >
+            <b>Отмена</b>
+            </button>
+        </div>
+    </div>
+    </div>
+</div>

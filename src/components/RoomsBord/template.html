@@ -1,0 +1,65 @@
+<div class="RoomsBord__wraper full-screen hidden-overflow">
+    <div class="RoomsBord__rooms-card full-width">
+        <div class="RoomsBord__rooms-card_button flex flex-center"
+            @mouseover="visibleRoomsCardSpan=true"
+            @mouseleave="visibleRoomsCardSpan=false"           
+            @click="this.visibleRoomsCard=true"
+        >
+            <div class="RoomsBord__rooms-card_button-anim flex flex-center full-width">
+                <img src="https://www.freeiconspng.com/uploads/heart-png-4.png" alt="">
+            </div>
+        </div>
+        <transition name="list">
+            <span class="RoomsBord__rooms-card_span radius-border"
+                    v-if="visibleRoomsCardSpan"    
+            >
+                Добавить новое окно для чата
+            </span>
+        </transition>
+    </div>
+    <div class="RoomsBord__rooms-card_heder full-width flex flex-center">
+        <h1>Chat and Fall in Love</h1><img src="https://www.freeiconspng.com/uploads/heart-png-4.png" alt="">
+    </div>
+
+    <transition name="fade">
+        <rooms-card 
+                    v-if="visibleRoomsCard"
+                    @pushListBord="pushListBord"
+                    @scipRoomsCard="this.visibleRoomsCard=false"
+        />
+    </transition>
+
+    <transition name="list">
+        <rooms-list-names class="RoomsBord__rooms-list-names scroll"
+                        v-if="this.boards.length != 0 && this.boards[0].name"
+                        :boards="boards"
+                        @clickNameElement="clickNameElement"
+                        @deleteElemetn="deleteElemetn"
+        />
+    </transition>
+
+    <transition name="list">
+        <rooms-bots 
+                    v-if="visibleRoomsChat && !boards[ this.idActivRoom ].nameBot"
+                    @choisBot="choisBot"
+        />
+    </transition>
+
+    <transition name="fade">
+        <rooms-chat
+                    v-if="visibleRoomsChat && boards[ this.idActivRoom ].nameBot"
+                    :boardItem="boards[ this.idActivRoom ]"
+                    @newMessag="newMessag"
+                    @rollUp="rollUp( this.idActivRoom )"
+                    @scipUp="scipUp( this.idActivRoom )"
+        />
+    </transition>
+
+    <transition name="fade">
+    <room-rolled-up
+              v-if="this.arrActivRoom.length != 0"
+              :arrActivRoom="arrActivRoom" 
+              @clickNameElement="clickNameElement"    
+    />
+    </transition>
+</div>

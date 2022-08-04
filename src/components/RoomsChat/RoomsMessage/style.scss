@@ -1,0 +1,70 @@
+.RoomsMessage_ {
+    &_wraper  {
+        width: 90%;
+        margin: 2%;
+    }
+    &_messag {
+        margin: 0.5rem;
+        width: auto;
+        float: left;
+        background: silver;
+        padding: 1em 1.5em;
+        border-radius: 1em;
+        position: relative;
+        line-height: 1.5em;
+
+        &::after, &::before {
+            content: "";
+            position: absolute;
+            left: 100%;
+            bottom: .5em;
+            width: 1.8em;
+            height: 1.8em;
+            border: .5em solid white;
+            border-radius: 50%;
+            background: blue;
+        }
+        
+        &::before {
+            border-top: none;
+            height: .9em;
+            border-radius: 0 0 50% 50% / 0 0 100% 100%;
+            background: silver;
+            border-color: silver;
+            margin-left: -.9em;
+        }
+
+        &-bot {
+            margin: 0.5rem;
+            width: auto;
+            float: left;
+            background: rgb(143, 237, 234);
+            padding: 1em 1.5em;
+            border-radius: 1em;
+            position: relative;
+            line-height: 1.5em;
+
+            &::after, &::before {
+                content: "";
+                position: absolute;
+                left: 100%;
+                bottom: .5em;
+                width: 1.8em;
+                height: 1.8em;
+                border: .5em solid white;
+                border-radius: 50%;
+                background: rgb(255, 89, 0);
+            }
+            
+            &::before {
+                border-top: none;
+                height: .9em;
+                border-radius: 0 0 50% 50% / 0 0 100% 100%;
+                background: rgb(143, 237, 234);
+                border-color: rgb(143, 237, 234);
+                margin-left: -.9em;
+            }
+        }
+    }
+}
+
